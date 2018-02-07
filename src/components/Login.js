@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
 // import Button from 'material-ui/Button';
-import PropTypes from 'prop-types';
-import { withStyles } from 'material-ui/styles';
+// import PropTypes from 'prop-types';
+// import { withStyles } from 'material-ui/styles';
 import Paper from 'material-ui/Paper';
-import Typography from 'material-ui/Typography';
+// import Typography from 'material-ui/Typography';
+import './LoginTabs'
+import LoginTabs from './LoginTabs';
+// import InputContainer from './InputContainer';
 
 const style = {
   minWidth: '20em',
@@ -15,13 +18,7 @@ export default class Login extends Component {
     return (
       <div>
         <Paper style={style}  elevation={16} >
-          <Typography variant="headline" component="h3" >
-            Epa epa epa
-          </Typography>
-          <Typography component="p" >
-            Ey ey ey
-          </Typography>
-
+          <LoginTabs/>
         </Paper>
       </div>
     );

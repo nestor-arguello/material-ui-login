@@ -9,6 +9,7 @@
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-scripts": "1.1.0",
+    "react-swipeable-views": "^0.12.12",
     "typeface-roboto": "0.0.54"
   },
   "scripts": {
