@@ -9,15 +9,15 @@ import LoginTabs from './LoginTabs';
 // import InputContainer from './InputContainer';
 
 const style = {
-  minWidth: '20em',
-  minHeight: '40em'
+  width: '20em',
+  minHeight: '36em',
 };
 
 export default class Login extends Component {
   render() {
     return (
       <div>
-        <Paper style={style}  elevation={16} >
+        <Paper style={style} elevation={16} >
           <LoginTabs/>
         </Paper>
       </div>

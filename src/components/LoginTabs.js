@@ -28,7 +28,6 @@ TabContainer.propTypes = {
 const styles = theme => ({
   root: {
     backgroudColor: theme.palette.background.paper,
-    width: 500,
   },
 });
 
@@ -50,29 +49,30 @@ class LoginTabs extends Component {
 
     return (
       <div className={classes.root}>
-      <AppBar position="static" color="default">
-        <Tabs 
-          value={this.state.value}
-          onChange={this.handleChange}
-          indicatorColor="primary"
-          fullWidth
+        <AppBar position="static" color="default">
+          <Tabs 
+            value={this.state.value}
+            onChange={this.handleChange}
+            indicatorColor="primary"
+            fullWidth
+          >
+            <Tab label="Inicia sesión" />
+            <Tab label="Regístrate" />
+          </Tabs>
+        </AppBar>
+        <SwipeableViews
+          axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
+          index={this.state.value}
+          onChangeIndex={this.handleChangeIndex}
         >
-          <Tab label="Login" />
-          <Tab label="Registro" />
-        </Tabs>
-      </AppBar>
-      <SwipeableViews
-        axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
-        index={this.state.value}
-        onChangeIndex={this.handleChangeIndex}
-      >
-        <TabContainer dir={theme.direction}>
-            Login
+          <TabContainer dir={theme.direction}>
+            ¿Ya tienes cuenta?
             <InputContainer />
-
-        </TabContainer>
-        <TabContainer dir={theme.direction}>Registro</TabContainer>
-      </SwipeableViews>
+          </TabContainer>
+          <TabContainer dir={theme.direction}>
+            ¿Nuevo en URBO?
+          </TabContainer>
+        </SwipeableViews>
       </div>
     );
   }

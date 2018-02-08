@@ -5,7 +5,14 @@
   left: 50%;
   transform: translate(-50%, -50%);
 }
-
+.background-img {
+  background-image: url('./city-background.jpg');
+  background-size: cover; 
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
+  height: 100vh;
+}
 /* .App-logo {
   animation: App-logo-spin infinite 20s linear;
   height: 80px;

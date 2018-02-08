@@ -2,27 +2,32 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from 'material-ui/styles';
 // import MenuItem from 'material-ui/Menu/MenuItem';
-import TextField from 'material-ui/TextField';
+// import TextField from 'material-ui/TextField';
+import Input, { InputLabel, InputAdornment } from 'material-ui/Input';
+import Visibility from 'material-ui-icons/Visibility';
+import VisibilityOff from 'material-ui-icons/VisibilityOff';
+import IconButton from 'material-ui/IconButton';
+import { FormControl } from 'material-ui/Form'
+// import { FormControl, FormHelper } from 'material-ui/Form'
 
 const styles = theme => ({
-  container: {
+  root: {
     display: 'flex',
     flexWrap: 'wrap',
   },
-  textField: {
-    marginLeft: theme.spacing.unit,
-    marginRight: theme.spacing.unit,
-    width: 200,
+  formControl: {
+    margin: theme.spacing.unit,
   },
-  menu: {
-    width: 200,
-  },
+  // withoutLabel: {
+  //   marginTop: theme.spacing.unit * 3,
+  // },
 });
 
 class InputContainer extends Component {
   state = {
     email: '',
-    password: ''
+    password: '',
+    showPassword: false,
   };
 
   handleChange = name => event => {
@@ -31,31 +36,62 @@ class InputContainer extends Component {
     });
   };
 
+  handleMouseDownPassword = event => {
+    event.preventDefault();
+  };
+
+  handleClickShowPassword = () => {
+    this.setState({
+      showPassword: !this.state.showPassword
+    });
+  };
+
   render() {
     const { classes } = this.props;
 
     return (
-      <form className={classes.container} noValidate autoComplete="off" >
-        <TextField 
+      <div className={classes.root} >
+        <FormControl 
+          fullWidth 
+          className={classes.formControl}
           required
-          id="email"
-          label="Email"
-          value={this.state.email}
-          onChange={this.handleChange('email')}
-          margin="normal"
+        >
+          <InputLabel htmlFor="email">Email</InputLabel>
+          <Input
+            id="email-field"
+            value={this.state.email}
+            onChange={this.handleChange('email')}
+            required
+            autoFocus={true}
+          />
+        </FormControl>
+
+        <FormControl 
           fullWidth
-        />
-        <TextField 
+          className={classes.formControl}
           required
-          id="password"
-          label="Contraseña"
-          value={this.state.password}
-          onChange={this.handleChange('password')}
-          margin="normal"
-          fullWidth
-        />
-      </form>
-    )
+        >
+          <InputLabel htmlFor="password">Contraseña</InputLabel>
+          <Input 
+            id="password-field"
+            type={this.state.showPassword ? 'text' : 'password'}
+            value={this.state.password}
+            onChange={this.handleChange('password')}
+            required
+            endAdornment={
+              <InputAdornment position="end">
+                <IconButton 
+                  onClick={this.handleClickShowPassword}
+                  onMouseDown={this.handleMouseDownPassword}
+                >
+                  {this.state.showPassword ? <VisibilityOff /> : <Visibility />}
+                </IconButton>
+              </InputAdornment>
+            }
+          />
+        </FormControl>
+      </div>
+    );
   }
 }
 
