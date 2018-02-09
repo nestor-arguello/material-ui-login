@@ -1,14 +1,11 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from 'material-ui/styles';
-// import MenuItem from 'material-ui/Menu/MenuItem';
-// import TextField from 'material-ui/TextField';
 import Input, { InputLabel, InputAdornment } from 'material-ui/Input';
 import Visibility from 'material-ui-icons/Visibility';
 import VisibilityOff from 'material-ui-icons/VisibilityOff';
 import IconButton from 'material-ui/IconButton';
 import { FormControl } from 'material-ui/Form'
-// import { FormControl, FormHelper } from 'material-ui/Form'
 
 const styles = theme => ({
   root: {
@@ -23,7 +20,7 @@ const styles = theme => ({
   // },
 });
 
-class InputContainer extends Component {
+class SignInContainer extends Component {
   state = {
     email: '',
     password: '',
@@ -58,7 +55,7 @@ class InputContainer extends Component {
         >
           <InputLabel htmlFor="email">Email</InputLabel>
           <Input
-            id="email-field"
+            id="email-signin-field"
             value={this.state.email}
             onChange={this.handleChange('email')}
             required
@@ -95,8 +92,8 @@ class InputContainer extends Component {
   }
 }
 
-InputContainer.propTypes = {
+SignInContainer.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(InputContainer);
+export default withStyles(styles)(SignInContainer);

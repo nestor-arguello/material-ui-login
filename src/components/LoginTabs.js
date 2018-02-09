@@ -5,7 +5,9 @@ import SwipeableViews from 'react-swipeable-views';
 import AppBar from 'material-ui/AppBar';
 import Tabs, { Tab } from 'material-ui/Tabs';
 import Typography from 'material-ui/Typography';
-import InputContainer from './InputContainer';
+import SignInContainer from './SignInContainer';
+import SignUpContainer from './SignUpContainer';
+import StartBtn from './StartBtn';
 
 function TabContainer({ children, dir }) {
   return (
@@ -67,10 +69,16 @@ class LoginTabs extends Component {
         >
           <TabContainer dir={theme.direction}>
             ¿Ya tienes cuenta?
-            <InputContainer />
+            <SignInContainer />
+            <br/>
+            <StartBtn text="Actívate" />
           </TabContainer>
+          
           <TabContainer dir={theme.direction}>
-            ¿Nuevo en URBO?
+            ¡Bienvenido a URBO!
+            <SignUpContainer />
+            <br/>
+            <StartBtn text="Regístrate" />
           </TabContainer>
         </SwipeableViews>
       </div>
